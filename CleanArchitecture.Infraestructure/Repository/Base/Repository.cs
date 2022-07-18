@@ -15,20 +15,11 @@ namespace CleanArchitecture.Infraestructure.Repository.Base
             _context = context;
         }
 
-        public async Task<IReadOnlyList<T>> GetAllAsync()
-        {
-            return await _context.Set<T>().ToListAsync();
-        }
+        public async Task<IReadOnlyList<T>> GetAllAsync() => await _context.Set<T>().ToListAsync();
 
-        public async Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate)
-        {
-            return await _context.Set<T>().Where(predicate).ToListAsync();
-        }
+        public async Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate) => await _context.Set<T>().Where(predicate).ToListAsync();
 
-        public async Task<T> GetByIdAsync(int id)
-        {
-            return await _context.Set<T>().FindAsync(id);
-        }
+        public async Task<T> GetByIdAsync(int id) => await _context.Set<T>().FindAsync(id);
 
         public async Task<T> AddAsync(T entity)
         {
